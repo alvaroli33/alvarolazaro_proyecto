@@ -28,5 +28,5 @@ public interface ServicioUsuarios {
 
 	void deleteAll();
 
-	Optional<UsuariosVO> findByNombre(String nombre);
+	Optional<UsuariosVO> findByUsername(String nombre);
 }
