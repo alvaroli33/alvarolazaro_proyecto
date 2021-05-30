@@ -6,28 +6,28 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dawes.modelo.RolesUsuariosVO;
 import com.dawes.modelo.RolesVO;
-import com.dawes.repositorio.RolesUsuariosRepositorio;
-import com.dawes.servicio.ServicioRolesUsuarios;
+import com.dawes.modelo.UsuarioRolVO;
+import com.dawes.repositorio.UsuarioRolRepositorio;
+import com.dawes.servicio.ServicioUsuarioRol;
 
 @Service
-public class ServicioRolesUsuariosImpl implements ServicioRolesUsuarios {
+public class ServicioUsuarioRolImpl implements ServicioUsuarioRol  {
 	@Autowired
-	RolesUsuariosRepositorio rur;
+	UsuarioRolRepositorio rur;
 
 	@Override
-	public <S extends RolesUsuariosVO> S save(S entity) {
+	public <S extends UsuarioRolVO> S save(S entity) {
 		return rur.save(entity);
 	}
 
 	@Override
-	public <S extends RolesUsuariosVO> Iterable<S> saveAll(Iterable<S> entities) {
+	public <S extends UsuarioRolVO> Iterable<S> saveAll(Iterable<S> entities) {
 		return rur.saveAll(entities);
 	}
 
 	@Override
-	public Optional<RolesUsuariosVO> findById(Integer id) {
+	public Optional<UsuarioRolVO> findById(Integer id) {
 		return rur.findById(id);
 	}
 
@@ -37,12 +37,12 @@ public class ServicioRolesUsuariosImpl implements ServicioRolesUsuarios {
 	}
 
 	@Override
-	public Iterable<RolesUsuariosVO> findAll() {
+	public Iterable<UsuarioRolVO> findAll() {
 		return rur.findAll();
 	}
 
 	@Override
-	public Iterable<RolesUsuariosVO> findAllById(Iterable<Integer> ids) {
+	public Iterable<UsuarioRolVO> findAllById(Iterable<Integer> ids) {
 		return rur.findAllById(ids);
 	}
 
@@ -57,12 +57,12 @@ public class ServicioRolesUsuariosImpl implements ServicioRolesUsuarios {
 	}
 
 	@Override
-	public void delete(RolesUsuariosVO entity) {
+	public void delete(UsuarioRolVO entity) {
 		rur.delete(entity);
 	}
 
 	@Override
-	public void deleteAll(Iterable<? extends RolesUsuariosVO> entities) {
+	public void deleteAll(Iterable<? extends UsuarioRolVO> entities) {
 		rur.deleteAll(entities);
 	}
 
@@ -71,8 +71,5 @@ public class ServicioRolesUsuariosImpl implements ServicioRolesUsuarios {
 		rur.deleteAll();
 	}
 
-	@Override
-	public List<RolesUsuariosVO> findByRoles(RolesVO rol) {
-		return rur.findByRoles(rol);
-	}
+	
 }

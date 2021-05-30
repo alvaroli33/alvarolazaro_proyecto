@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.dawes.modelo.RolesUsuariosVO;
+
 import com.dawes.modelo.RolesVO;
+import com.dawes.modelo.UsuarioRolVO;
 
 @Repository
-public interface RolesUsuariosRepositorio extends CrudRepository<RolesUsuariosVO, Integer>{
+public interface UsuarioRolRepositorio extends CrudRepository<UsuarioRolVO, Integer>{
 
-	List<RolesUsuariosVO> findByRoles(RolesVO rol);
 }
