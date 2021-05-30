@@ -16,15 +16,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="rolesusuarios")
-public class RolesUsuariosVO {
+@Table(name="usuariorol")
+public class UsuarioRolVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idrolesusuarios;
+	private int idusuariorol;
 	@ManyToOne
 	@JoinColumn(name="idusuario")
 	private UsuariosVO usuario;
 	@ManyToOne
-	@JoinColumn(name="idroles")
-	private RolesVO roles;
+	@JoinColumn(name="idrol")
+	private RolesVO rol;
 }
