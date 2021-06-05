@@ -1,9 +1,7 @@
 package com.dawes.servicio;
 
-import java.util.List;
 import java.util.Optional;
 
-import com.dawes.modelo.RolesVO;
 import com.dawes.modelo.UsuarioRolVO;
 
 public interface ServicioUsuarioRol {

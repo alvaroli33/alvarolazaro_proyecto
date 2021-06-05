@@ -16,6 +16,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,6 +34,7 @@ public class UsuariosVO implements UserDetails {
 		private String username;
 		private String password;
 		@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+		@JsonIgnore
 		List<UsuarioRolVO> roles;
 		@Override
 		public Collection<? extends GrantedAuthority> getAuthorities() {

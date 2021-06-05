@@ -1,6 +1,6 @@
 package com.dawes.modelo;
 
-import java.time.LocalDate;
+import java.sql.Time;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -24,8 +24,8 @@ public class ViajesVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idviajes;
-	private LocalDateTime horasalida;
-	private LocalDateTime horallegada;
+	private String horasalida;
+	private String horallegada;
 	private int asientos;
 	private String coche;
 	private String preferencias;

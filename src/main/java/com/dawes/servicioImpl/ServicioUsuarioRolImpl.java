@@ -1,12 +1,10 @@
 package com.dawes.servicioImpl;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dawes.modelo.RolesVO;
 import com.dawes.modelo.UsuarioRolVO;
 import com.dawes.repositorio.UsuarioRolRepositorio;
 import com.dawes.servicio.ServicioUsuarioRol;

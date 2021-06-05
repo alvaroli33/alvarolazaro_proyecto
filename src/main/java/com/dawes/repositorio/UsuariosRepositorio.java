@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-
 import com.dawes.modelo.UsuariosVO;
 
 @Repository
