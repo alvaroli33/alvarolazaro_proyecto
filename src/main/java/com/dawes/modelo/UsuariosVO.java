@@ -32,7 +32,12 @@ public class UsuariosVO implements UserDetails {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int idusuario;
 		private String username;
+		private String lastname;
 		private String password;
+		private int edad;
+		private String descripcion;
+		private String correo;
+		private int telefono;
 		@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 		@JsonIgnore
 		List<UsuarioRolVO> roles;

@@ -1,0 +1,48 @@
+body {
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: white;
+}
+.contenedor{
+    font-size: .8em;
+    width: 100%;
+    margin:3em auto;
+    overflow: hidden;
+    position: relative;
+}
+.publicacion{
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 80%;
+    margin: auto;
+}
+article{
+    position: relative;
+    margin:5px 10px;
+    padding:30px 80px;
+  	border-radius: 80px 80px 80px 80px;
+	border: 2px solid #40e2ff;
+}
+.info{
+    display:flex;
+	flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-right: 300px;
+}
+.info span{
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin:10px 40px;
+    }
+.info span:nth-child(6){
+	float:right;
+	margin: 0 30px;
+}
+   
+   
+   
