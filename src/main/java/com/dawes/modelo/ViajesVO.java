@@ -1,8 +1,5 @@
 package com.dawes.modelo;
 
-import java.sql.Time;
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,4 +33,7 @@ public class ViajesVO {
 	@ManyToOne
 	@JoinColumn(name="iddestino")
 	private DestinoVO destino;
+	@ManyToOne
+	@JoinColumn(name="idorigen")
+	private OrigenVO origen;
 }

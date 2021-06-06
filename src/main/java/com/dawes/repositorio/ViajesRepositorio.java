@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.dawes.modelo.DestinoVO;
+import com.dawes.modelo.OrigenVO;
 import com.dawes.modelo.UsuariosVO;
 import com.dawes.modelo.ViajesVO;
 
@@ -16,4 +17,5 @@ public interface ViajesRepositorio extends CrudRepository<ViajesVO, Integer>{
 	List<ViajesVO> findByHorallegadaBetween(LocalDateTime hora1,LocalDateTime hora2);
 	List<ViajesVO> findByDestino(DestinoVO destino);
 	List<ViajesVO> findByUsuario(UsuariosVO usuario);
+	List<ViajesVO> findByOrigen(OrigenVO origen);
 }

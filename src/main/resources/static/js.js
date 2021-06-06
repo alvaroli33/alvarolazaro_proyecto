@@ -6,13 +6,13 @@ window.onload=function(){
         const viajes =await response.json();
         procesaViajes(viajes);
 	}
-        function procesaViajes(viajes){
+    function procesaViajes(viajes){
             for (viaje of viajes){
                 cadenaHTML+=`        
                     <h4 class="${viaje.idviajes}">${viaje.coche}</h4>
                 `;
-            }
-        document.body.innerHTML=cadenaHTML;
-        }
+    }
+    document.body.innerHTML=cadenaHTML;
+    }
     
 }
