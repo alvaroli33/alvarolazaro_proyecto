@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>hola</h1>
+<header>
+	<a th:href="@{/index}">
+		<div class="titulo">
+			<img th:src="@{/img/logo_small.png}" alt="logo">
+		</div>
+	</a>
+	<ul class="navegacion" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+		<li><a th:href="@{/registrate}">Registrate</a></li>
+		<li><a th:href="@{/login}">Inicia Sesion</a></li>
+	</ul>
+</header>
 </body>
 </html>

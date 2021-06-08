@@ -26,7 +26,6 @@ window.onload=function(){
                  		<span><strong>Horario de Salida: </strong>${viaje.horasalida}</span>
                  		<span><strong>Horario de Llegada: </strong>${viaje.horallegada}</span>
                  		</div>
-                 		<span>${viaje.usuario.username}</span>
                  	</article>
                 `;
     }
