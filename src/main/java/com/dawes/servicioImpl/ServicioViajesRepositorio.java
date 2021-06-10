@@ -7,8 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dawes.modelo.DestinoVO;
-import com.dawes.modelo.OrigenVO;
 import com.dawes.modelo.UsuariosVO;
 import com.dawes.modelo.ViajesVO;
 import com.dawes.repositorio.ViajesRepositorio;
@@ -85,19 +83,10 @@ public class ServicioViajesRepositorio implements ServicioViajes {
 	}
 
 	@Override
-	public List<ViajesVO> findByDestino(DestinoVO destino) {
-		return vr.findByDestino(destino);
-	}
-
-	@Override
 	public List<ViajesVO> findByUsuario(UsuariosVO usuario) {
 		return vr.findByUsuario(usuario);
 	}
 
-	@Override
-	public List<ViajesVO> findByOrigen(OrigenVO origen) {
-		return vr.findByOrigen(origen);
-	}
 
 
 }

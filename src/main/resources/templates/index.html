@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <link href="estilos.css" rel="stylesheet">
@@ -10,13 +10,22 @@
 <header>
 	<a th:href="@{/index}">
 		<div class="titulo">
-			<img th:src="@{/img/logo_small.png}" alt="logo">
+			<img src="/img/logo_small.png" alt="logo">
 		</div>
 	</a>
 	<ul class="navegacion" sec:authorize="hasRole('ROLE_ANONYMOUS')">
 		<li><a th:href="@{/registrate}">Registrate</a></li>
 		<li><a th:href="@{/login}">Inicia Sesion</a></li>
 	</ul>
+	<ul class="navegacion" sec:authorize="isAuthenticated()">
+                <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/panel}">Panel</a></li>
+                <li><a th:href="@{/crearpublicacion}">Publicar</a></li>
+                <li>
+                    <a href="#" sec:authentication="name">  
+                    </a>
+                    </li>
+                    </ul>
+                    
 </header>
 </body>
 </html>

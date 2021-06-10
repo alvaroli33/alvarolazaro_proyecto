@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="estilos.css" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}">
+		<div class="titulo">
+			<img src="/img/logo_small.png" alt="logo">
+		</div>
+	</a>
+	<ul class="navegacion" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+		<li><a th:href="@{/registrate}">Registrate</a></li>
+		<li><a th:href="@{/login}">Inicia Sesion</a></li>
+	</ul>
+</header>
+	<form th:action="@{/crearpublicacion}" method="post">
+			<div><label> Origen : <input type="text" name="origen" placeholder="Introduce el origen" required="required"/> </label></div>
+			<div><label> Destino : <input type="text" name="destino" placeholder="Introduce el destino" required="required"/> </label></div>
+			<div><label> Asientos libres : <input type="number" name="asientos" placeholder="Introduce el numero de asientos" required="required"/> </label></div>
+			<div><label> Hora de salida : <input type="time" name="horasalida" required="required"/> </label></div>
+			<div><label> Hora de llegada : <input type="time" name="horallegada" placeholder="Introduce tu email" required="required"/> </label></div>
+			<div><label> Coche : <input type="text" name="coche" placeholder="Introduce el modelo de tu coche" required="required"/> </label></div>
+			<div>Estado :<select name="estado">
+			  <option value="Disponible">Disponible</option>
+			  <option value="No Disponible" selected>No Disponible</option>
+			</select>
+			</div>
+			<div><label> Preferencias : <textarea name="preferencias" placeholder="Escribe tus preferencias" required="required"></textarea></label></div>
+			<div><input type="submit" value="Publicar"/></div>
+		</form>
+</body>
+</html>

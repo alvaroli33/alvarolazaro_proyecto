@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <link href="estilos.css" rel="stylesheet">
-<script src="/js.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
+		<form th:action="@{/registrate}" method="post">
+			<div><label> Nombre : <input type="text" name="username" placeholder="Introduce tu nombre" required="required"/> </label></div>
+			<div><label> Apellidos : <input type="text" name="lastname" placeholder="Introduce tu apellido" required="required"/> </label></div>
+			<div><label> Contraseña : <input type="password" name="password" placeholder="Introduce tu contraseña" required="required"/> </label></div>
+			<div><label> Confirmar contraseña : <input type="password" name="confirmarpassword" placeholder="Confirmar contraseña" required="required"/> </label></div>
+			<div><label> Correo : <input type="email" name="correo" placeholder="Introduce tu email" required="required"/> </label></div>
+			<div><label> Edad : <input type="number" name="edad" placeholder="Introduce tu edad" required="required"/> </label></div>
+			<div><label> Telefono : <input type="number" name="telefono" placeholder="Introduce tu telefono" required="required"/> </label></div>
+			<div><label> Descripcion : <textarea name="descripcion" placeholder="Introduce una descripcion" required="required"></textarea></label></div>
+			<div><input type="submit" value="Registrate"/></div>
+		</form>
 </body>
 </html>

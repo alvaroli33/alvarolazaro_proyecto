@@ -20,8 +20,8 @@ window.onload=function(){
                 cadenaHTML+=`    
                  	<article>
                  		<div class="info">
-                 		<span><strong>Origen: </strong>${viaje.origen.nombre}</span>
-                 		<span><strong>Destino: </strong>${viaje.destino.nombre}</span>
+                 		<span><strong>Origen: </strong>${viaje.origen}</span>
+                 		<span><strong>Destino: </strong>${viaje.destino}</span>
                  		<span><strong>Asientos disponibles: </strong>${viaje.asientos}</span>
                  		<span><strong>Horario de Salida: </strong>${viaje.horasalida}</span>
                  		<span><strong>Horario de Llegada: </strong>${viaje.horallegada}</span>

@@ -27,13 +27,9 @@ public class ViajesVO {
 	private String coche;
 	private String preferencias;
 	private String estado;
+	private String destino;
+	private String origen;
 	@ManyToOne
 	@JoinColumn(name="idusuario")
 	private UsuariosVO usuario;
-	@ManyToOne
-	@JoinColumn(name="iddestino")
-	private DestinoVO destino;
-	@ManyToOne
-	@JoinColumn(name="idorigen")
-	private OrigenVO origen;
 }

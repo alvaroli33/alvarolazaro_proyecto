@@ -4,8 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import com.dawes.modelo.DestinoVO;
-import com.dawes.modelo.OrigenVO;
 import com.dawes.modelo.UsuariosVO;
 import com.dawes.modelo.ViajesVO;
 
@@ -34,8 +32,6 @@ public interface ServicioViajes {
 	void deleteAll();
 	List<ViajesVO> findByHorasalidaBetween(LocalDateTime hora1,LocalDateTime hora2);
 	List<ViajesVO> findByHorallegadaBetween(LocalDateTime hora1,LocalDateTime hora2);
-	List<ViajesVO> findByDestino(DestinoVO destino);
 	List<ViajesVO> findByUsuario(UsuariosVO usuario);
-	List<ViajesVO> findByOrigen(OrigenVO origen);
 
 }

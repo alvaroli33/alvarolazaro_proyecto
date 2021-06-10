@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dawes.modelo.ViajesVO;
-import com.dawes.repositorio.DestinoRepositorio;
 import com.dawes.repositorio.MensajesRepositorio;
 import com.dawes.repositorio.ViajesRepositorio;
 
@@ -19,8 +18,6 @@ public class ControladorRest {
 	 ViajesRepositorio vr;
 	 @Autowired
 	 MensajesRepositorio mr;
-	 @Autowired
-	 DestinoRepositorio dr;
 	 
 	 @GetMapping("/viajes")
 	 public ResponseEntity<?> findAll(){
@@ -28,5 +25,6 @@ public class ControladorRest {
 		 if (lista.isEmpty()) return ResponseEntity.notFound().build();
 		 else return ResponseEntity.ok(lista);
 	 }
+	 
 }
 
