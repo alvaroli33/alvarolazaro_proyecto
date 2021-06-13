@@ -38,8 +38,14 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/crearpublicacion").hasAnyRole("USER","ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/crearpublicacion").hasAnyRole("USER","ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/proveedor").hasAnyRole("USER","ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/proveedor").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/perfil").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/viaje").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/modificarviaje").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/eliminarviaje").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/modificarusuario").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/eliminarusuario").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/aceptar").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/panel").hasRole("ADMIN");
 		http.httpBasic();
 		http.formLogin().loginPage("/login");
 		http.exceptionHandling().accessDeniedPage("/403");

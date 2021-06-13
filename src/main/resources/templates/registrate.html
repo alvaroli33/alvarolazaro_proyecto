@@ -2,20 +2,29 @@
 <html xmlns:th="thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<link href="estilos.css" rel="stylesheet">
+<link href="estiloSeguridad.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
+<header>
+	<a th:href="@{/index}">
+		<div class="titulo">
+			<img src="/img/logo_small2.png" alt="logo">
+		</div>
+	</a>                    
+</header>
+<h1 class="h1">Registrate</h1>
 		<form th:action="@{/registrate}" method="post">
 			<div><label> Nombre : <input type="text" name="username" placeholder="Introduce tu nombre" required="required"/> </label></div>
 			<div><label> Apellidos : <input type="text" name="lastname" placeholder="Introduce tu apellido" required="required"/> </label></div>
 			<div><label> Contraseña : <input type="password" name="password" placeholder="Introduce tu contraseña" required="required"/> </label></div>
-			<div><label> Confirmar contraseña : <input type="password" name="confirmarpassword" placeholder="Confirmar contraseña" required="required"/> </label></div>
+			<div><label> Confirmar contraseña : <input type="password" name="confirmpassword" placeholder="Confirmar contraseña" required="required"/> </label></div>
 			<div><label> Correo : <input type="email" name="correo" placeholder="Introduce tu email" required="required"/> </label></div>
 			<div><label> Edad : <input type="number" name="edad" placeholder="Introduce tu edad" required="required"/> </label></div>
 			<div><label> Telefono : <input type="number" name="telefono" placeholder="Introduce tu telefono" required="required"/> </label></div>
 			<div><label> Descripcion : <textarea name="descripcion" placeholder="Introduce una descripcion" required="required"></textarea></label></div>
-			<div><input type="submit" value="Registrate"/></div>
+			<div class="registrate"><input type="submit" value="Registrate"/></div>
 		</form>
+		<div class="error" th:if="${ErrorUsuario}" th:text="${ErrorUsuario}">Error</div>
 </body>
 </html>

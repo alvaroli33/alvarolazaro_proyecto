@@ -3,7 +3,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="estilos.css" rel="stylesheet">
-<script src="/js.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -17,8 +16,8 @@
 		<li><a th:href="@{/registrate}">Registrate</a></li>
 		<li><a th:href="@{/login}">Inicia Sesion</a></li>
 	</ul>
-	<ul class="navegacion" sec:authorize="isAuthenticated()">
-                <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/panel}">Panel Administrador</a></li>
+	<ul class="navegacion" sec:authorize="isAuthenticated()">    
+	<li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/panel}">Panel Administrador</a></li>         
                 <li><a th:href="@{/crearpublicacion}">Crear Viaje</a></li>
                 <li><a th:href="@{/perfil}">Ver Perfil</a></li>
                 <li><a th:href="@{/logout}">Cerrar Sesion</a></li>
@@ -26,6 +25,17 @@
     </ul>
                     
 </header>
-<h1 class="h1">Viajes</h1>
+<h1 class="h1">Perfil</h1>
+<div class="mostrar">
+	<div>Nombre : <label th:text="${usuario.username}"></label></div>
+	<div>Apellidos : <label th:text="${usuario.lastname}"></label></div>
+	<div>Edad : <label th:text="${usuario.edad}"></label></div>
+	<div>Descripcion : <label th:text="${usuario.descripcion}"></label></div>
+	<div>Correo : <label th:text="${usuario.correo}"></label></div>
+	<div>Telefono : <label th:text="${usuario.telefono}"></label></div>
+	<div class="usuario">
+	<a th:href="@{/modificarusuario(idusuario=${usuario.idusuario})}">Editar</a>
+	</div>
+</div>
 </body>
 </html>

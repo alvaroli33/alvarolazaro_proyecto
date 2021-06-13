@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="estilos.css" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}">
+		<div class="titulo">
+			<img src="/img/logo_small.png" alt="logo">
+		</div>
+	</a>
+	<ul class="navegacion" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+		<li><a th:href="@{/registrate}">Registrate</a></li>
+		<li><a th:href="@{/login}">Inicia Sesion</a></li>
+	</ul>
+	<ul class="navegacion" sec:authorize="isAuthenticated()">  
+	<li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/panel}">Panel Administrador</a></li>           
+                <li><a th:href="@{/crearpublicacion}">Crear Viaje</a></li>
+                <li><a th:href="@{/perfil}">Ver Perfil</a></li>
+                <li><a th:href="@{/logout}">Cerrar Sesion</a></li>
+                <li><a href="#" sec:authentication="name"></a></li>
+    </ul>
+                    
+</header>
+<h1 class="h1">Viaje</h1>
+<div class="mostrar">
+	<div>Origen : <label th:text="${viaje.origen}"></label></div>
+	<div>Destino : <label th:text="${viaje.destino}"></label></div>
+	<div>Asientos Disponibles : <label th:text="${viaje.asientos}"></label></div>
+	<div>Hora de salida : <label th:text="${viaje.horasalida}"></label></div>
+	<div>Hora de llegada : <label th:text="${viaje.horallegada}"></label></div>
+	<div>Coche : <label th:text="${viaje.coche}"></label></div>
+	<div>Preferencias : <label th:text="${viaje.preferencias}"></label></div>
+	<div>Estado : <label th:text="${viaje.estado}"></label></div>
+	<div>Usuario : <label th:text="${viaje.usuario.username}"></label></div>
+	<div class="usuario">
+	<a th:href="@{/modificarviaje(idviajes=${viaje.idviajes})}">Editar</a>
+	<a th:href="@{/aceptar(idusuario=${viaje.usuario.idusuario})}">Aceptar</a>
+	<a th:href="@{/eliminarviaje(idviajes=${viaje.idviajes})}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar Viaje</a>
+	</div>
+</div>
+</body>
+</html>

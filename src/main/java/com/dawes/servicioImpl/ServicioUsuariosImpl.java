@@ -1,11 +1,13 @@
 package com.dawes.servicioImpl;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelo.UsuariosVO;
@@ -80,5 +82,30 @@ public class ServicioUsuariosImpl implements ServicioUsuarios,UserDetailsService
 	@Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return ur.findByUsername(username).get();
+    }
+	
+	private boolean CompararUsuarios(UsuariosVO usuario) throws Exception {
+        Optional<UsuariosVO> u = ur.findByUsername(usuario.getUsername());
+        if (u.isPresent()) {
+            throw new Exception("El usuario ya existe, Introduzca otro");
+        }
+        return true;
+    }
+
+    private boolean CompararContraseñas(UsuariosVO usuario) throws Exception {
+        if ( !usuario.getPassword().equals(usuario.getConfirmpassword())) {
+            throw new Exception("La contraseña no son iguales");
+        }
+        return true;
+    }
+
+    public UsuariosVO CrearUsuario(UsuariosVO usuario) throws Exception {
+        if (CompararUsuarios(usuario) && CompararContraseñas(usuario)) {
+            BCryptPasswordEncoder encript=new BCryptPasswordEncoder();
+            String contraseña = encript.encode(usuario.getPassword());
+            usuario.setPassword(contraseña);
+            usuario = ur.save(usuario);
+        }
+        return usuario;
     }
 }

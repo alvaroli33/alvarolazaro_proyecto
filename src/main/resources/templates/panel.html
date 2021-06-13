@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="estilos.css" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}">
+		<div class="titulo">
+			<img src="/img/logo_small.png" alt="logo">
+		</div>
+	</a>
+	<ul class="navegacion" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+		<li><a th:href="@{/registrate}">Registrate</a></li>
+		<li><a th:href="@{/login}">Inicia Sesion</a></li>
+	</ul>
+	<ul class="navegacion" sec:authorize="isAuthenticated()">
+                <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/panel}">Panel Administrador</a></li>
+                <li><a th:href="@{/crearpublicacion}">Crear Viaje</a></li>
+                <li><a th:href="@{/perfil}">Ver Perfil</a></li>
+                <li><a th:href="@{/logout}">Cerrar Sesion</a></li>
+                <li><a href="#" sec:authentication="name"></a></li>
+    </ul>
+                    
+</header>
+
+<h1 class="h1">Usuarios</h1>
+	<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Apellidos</th>
+		<th>Edad</th>		
+		<th>Correo</th>
+		<th>Telefono</th>
+		<th>Eliminar</th>
+		<th>Modificar</th>
+	</tr>
+	<tr th:each="u : ${usuario}">
+		<td th:text="${u.username}"></td>
+		<td th:text="${u.lastname}"></td>
+		<td th:text="${u.edad}"></td>
+		<td th:text="${u.correo}"></td>
+		<td th:text="${u.telefono}"></td>
+		<td><a th:href="@{/eliminarusuario(idusuario=${u.idusuario})}">Eliminar</a></td>
+		<td><a th:href="@{/modificarusuario(idusuario=${u.idusuario})}">Modificar</a></td>
+	</tr>
+	</table>
+	<h1 class="h1">Viajes</h1>
+	<table>
+	<tr>
+		<th>Origen</th>	
+		<th>Destino</th>		
+		<th>Asientos Disponibles</th>
+		<th>Fecha</th>
+		<th>Hora de Salida</th>
+		<th>Hora de llegada</th>
+		<th>Estado</th>
+		<th>Eliminar</th>
+		<th>Modificar</th>
+	</tr>
+	<tr th:each="v : ${viaje}">
+		<td th:text="${v.origen}"></td>
+		<td th:text="${v.destino}"></td>
+		<td th:text="${v.asientos}"></td>
+		<td th:text="${v.fecha}"></td>
+		<td th:text="${v.horasalida}"></td>
+		<td th:text="${v.horallegada}"></td>
+		<td th:text="${v.estado}"></td>
+		<td><a th:href="@{/eliminarviaje(idviajes=${v.idviajes})}">Eliminar</a></td>
+		<td><a th:href="@{/modificarviaje(idviajes=${v.idviajes})}">Modificar</a></td>
+	</tr>
+	</table>
+	<div class="panel"><a th:href="@{/index}">Volver</a></div>
+</body>
+</html>

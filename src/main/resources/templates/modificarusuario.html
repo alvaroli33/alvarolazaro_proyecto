@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="estilos.css" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}">
+		<div class="titulo">
+			<img src="/img/logo_small.png" alt="logo">
+		</div>
+	</a>
+	<ul class="navegacion" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+		<li><a th:href="@{/registrate}">Registrate</a></li>
+		<li><a th:href="@{/login}">Inicia Sesion</a></li>
+	</ul>
+	<ul class="navegacion" sec:authorize="isAuthenticated()">
+	<li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/panel}">Panel Administrador</a></li>            
+                <li><a th:href="@{/crearpublicacion}">Crear Viaje</a></li>
+                <li><a th:href="@{/perfil}">Ver Perfil</a></li>
+                <li><a th:href="@{/logout}">Cerrar Sesion</a></li>
+                <li><a href="#" sec:authentication="name"></a></li>
+    </ul>
+                    
+</header>
+<h1 class="h1">Editar Usuario</h1>
+		<form th:action="@{/editarusuario}"  method="post" th:object="${usuario}">
+	<div><label>Nombre : <input type="text" name="username" id="username" th:value="${username}" th:field="*{username}"></label></div>
+	<div><label>Apellidos : <input type="text" name="lastname" id="lastname" th:value="${lastname}" th:field="*{lastname}"></label></div>
+	<div><label>Contraseña : <input type="password" name="password" id="password" required="required"></label></div>
+	<div><label>Correo : <input type="email" name="correo" id="correo" th:value="${correo}" th:field="*{correo}"></label></div>
+	<div><label>Edad : <input type="number" name="edad" id="edad" th:value="${edad}" th:field="*{edad}"></label></div>
+	<div><label>Telefono : <input type="number" name="telefono" id="telefono" th:value="${telefono}" th:field="*{telefono}"></label></div>
+	<div><label>Descripcion : <input type="text" name="descripcion" id="descripcion" th:value="${descripcion}" th:field="*{descripcion}"></label></div>
+	<div class="registrate"><input type="submit" value="Modificar"/></div>
+	<input type="hidden" name="idusuario" id="idusuario" th:value="${idusuario}" th:field="*{idusuario}"/>
+</form>
+</body>
+</html>

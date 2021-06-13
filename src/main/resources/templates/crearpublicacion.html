@@ -16,21 +16,31 @@
 		<li><a th:href="@{/registrate}">Registrate</a></li>
 		<li><a th:href="@{/login}">Inicia Sesion</a></li>
 	</ul>
+	<ul class="navegacion" sec:authorize="isAuthenticated()">
+				<li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/panel}">Panel Administrador</a></li>          
+                <li><a th:href="@{/crearpublicacion}">Crear Viaje</a></li>
+                <li><a th:href="@{/perfil}">Ver Perfil</a></li>
+                <li><a th:href="@{/logout}">Cerrar Sesion</a></li>
+                <li><a href="#" sec:authentication="name"></a></li>
+    </ul>
+                    
 </header>
+<h1 class="h1">Crear Viaje</h1>
 	<form th:action="@{/crearpublicacion}" method="post">
 			<div><label> Origen : <input type="text" name="origen" placeholder="Introduce el origen" required="required"/> </label></div>
 			<div><label> Destino : <input type="text" name="destino" placeholder="Introduce el destino" required="required"/> </label></div>
-			<div><label> Asientos libres : <input type="number" name="asientos" placeholder="Introduce el numero de asientos" required="required"/> </label></div>
+			<div><label> Asientos libres : <input type="number" name="asientos" placeholder="Numero de asientos" required="required"/> </label></div>
+			<div><label> Fecha : <input type="date" name="fecha" required="required"/> </label></div>
 			<div><label> Hora de salida : <input type="time" name="horasalida" required="required"/> </label></div>
-			<div><label> Hora de llegada : <input type="time" name="horallegada" placeholder="Introduce tu email" required="required"/> </label></div>
-			<div><label> Coche : <input type="text" name="coche" placeholder="Introduce el modelo de tu coche" required="required"/> </label></div>
-			<div>Estado :<select name="estado">
-			  <option value="Disponible">Disponible</option>
-			  <option value="No Disponible" selected>No Disponible</option>
+			<div><label> Hora de llegada : <input type="time" name="horallegada"  required="required"/> </label></div>
+			<div><label> Coche : <input type="text" name="coche" placeholder="Modelo de coche" required="required"/> </label></div>
+			<div>Estado : <select name="estado">
+			  <option value="Disponible" selected>Disponible</option>
+			  <option value="No Disponible">No Disponible</option>
 			</select>
 			</div>
 			<div><label> Preferencias : <textarea name="preferencias" placeholder="Escribe tus preferencias" required="required"></textarea></label></div>
-			<div><input type="submit" value="Publicar"/></div>
+			<div class="registrate"><input type="submit" value="Publicar"/></div>
 		</form>
 </body>
 </html>

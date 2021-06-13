@@ -3,7 +3,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="estilos.css" rel="stylesheet">
-<script src="/js.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -26,6 +25,11 @@
     </ul>
                     
 </header>
-<h1 class="h1">Viajes</h1>
+<div class="aceptar">
+	<h1>Ha aceptado un viaje, pongase en contacto con el usuario para comunicarselo</h1>
+	<div>Telefono : <label th:text="${usuario.telefono}"></label></div>
+	<div>Email : <label th:text="${usuario.correo}"></label></div>
+	<div class="usuario"><a th:href="@{/index}">Volver</a></div>
+</div>
 </body>
 </html>

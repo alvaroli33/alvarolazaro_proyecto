@@ -29,4 +29,6 @@ public interface ServicioUsuarios {
 	void deleteAll();
 
 	Optional<UsuariosVO> findByUsername(String nombre);
+	
+	UsuariosVO CrearUsuario(UsuariosVO usuario) throws Exception;
 }

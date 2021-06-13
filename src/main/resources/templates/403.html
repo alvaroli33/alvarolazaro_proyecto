@@ -2,10 +2,21 @@
 <html xmlns:th="thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+<link href="403.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Eres un usuario validado pero no tienes permisos para acceder a este recurso</h1>
-	<a th:href="@{/index}">Volver</a>
+<header>
+	<a th:href="@{/index}">
+		<div class="titulo">
+			<img src="/img/logo_small2.png" alt="logo">
+		</div>
+	</a>                    
+</header>
+	<div class="error">
+		<h1>403</h1>
+		<p>Error!   Acceso Denegado</p>
+		<div class="registrate"><a th:href="@{/index}">Volver</a></div>
+	</div>
 </body>
 </html>

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dawes.modelo.ViajesVO;
-import com.dawes.repositorio.MensajesRepositorio;
 import com.dawes.repositorio.ViajesRepositorio;
 
 @RestController
@@ -16,8 +15,6 @@ public class ControladorRest {
 
 	@Autowired
 	 ViajesRepositorio vr;
-	 @Autowired
-	 MensajesRepositorio mr;
 	 
 	 @GetMapping("/viajes")
 	 public ResponseEntity<?> findAll(){

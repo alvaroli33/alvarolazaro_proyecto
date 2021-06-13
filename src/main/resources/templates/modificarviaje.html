@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="estilos.css" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}">
+		<div class="titulo">
+			<img src="/img/logo_small.png" alt="logo">
+		</div>
+	</a>
+	<ul class="navegacion" sec:authorize="hasRole('ROLE_ANONYMOUS')">
+		<li><a th:href="@{/registrate}">Registrate</a></li>
+		<li><a th:href="@{/login}">Inicia Sesion</a></li>
+	</ul>
+	<ul class="navegacion" sec:authorize="isAuthenticated()">
+	<li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/panel}">Panel Administrador</a></li>         
+                <li><a th:href="@{/crearpublicacion}">Crear Viaje</a></li>
+                <li><a th:href="@{/perfil}">Ver Perfil</a></li>
+                <li><a th:href="@{/logout}">Cerrar Sesion</a></li>
+                <li><a href="#" sec:authentication="name"></a></li>
+    </ul>
+                    
+</header>
+<h1 class="h1">Editar Viaje</h1>
+		<form th:action="@{/crearpublicacion}"  method="post" th:object="${viaje}">
+	<div><label>Origen : <input type="text" name="origen" id="origen" th:value="${origen}" th:field="*{origen}"></label></div>
+	<div><label>Destino : <input type="text" name="destino" id="destino" th:value="${destino}" th:field="*{destino}"></label></div>
+	<div><label>Asientos Disponibles : <input type="number" name="asientos" id="asientos" th:value="${asientos}" th:field="*{asientos}"></label></div>
+	<div><label>Fecha : <input type="date" name="fecha" id="fecha" th:value="${fecha}" th:field="*{fecha}"></label></div>
+	<div><label>Hora de Salida : <input type="time" name="horasalida" id="horasalida" th:value="${horasalida}" th:field="*{horasalida}"></label></div>
+	<div><label>Hora de Llegada : <input type="time" name="horallegada" id="horallegada" th:value="${horallegada}" th:field="*{horallegada}"></label></div>
+	<div><label>Coche : <input type="text" name="coche" id="coche" th:value="${coche}" th:field="*{coche}"></label></div>
+	<div><label>Preferencias : <input type="text" name="Preferencias" id="Preferencias" th:value="${Preferencias}" th:field="*{Preferencias}"></label></div>
+	<div>Estado : <select name="estado" th:value="${estado}">
+			  <option value="Disponible">Disponible</option>
+			  <option value="No Disponible">No Disponible</option>
+			 </select>
+	</div>
+	<div class="registrate"><input type="submit" value="modificar"/></div>
+	<input type="hidden" name="idviajes" id="idviajes" th:value="${idviajes}" th:field="*{idviajes}"/>
+</form>
+</body>
+</html>
